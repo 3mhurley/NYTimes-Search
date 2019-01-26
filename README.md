@@ -34,11 +34,11 @@ New York Times Article Search
 
 ### Back-End Team
 
-* Create the AJAX call needed to retrieve data then console.log all of the relevant fields.
+* Create the AJAX call needed to retrieve data then console.log all of the relevant fields. x
 
-* Incorporate various “optional parameters” (hard code these in initially).
+* Incorporate various “optional parameters” (hard code these in initially). x
 
-* Take note of various “bugs” that appear with certain searches.
+* Take note of various “bugs” that appear with certain searches. x
 
 ### All-Together
 
