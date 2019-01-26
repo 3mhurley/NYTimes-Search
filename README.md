@@ -14,13 +14,13 @@ New York Times Article Search
 
 ### Back-End Team
 
-* Do preliminary research on the [API](http://developer.nytimes.com/article_search_v2.json).
+* Do preliminary research on the [API](http://developer.nytimes.com/article_search_v2.json). x
 
-* Register for an API Key.
+* Register for an API Key. x
 
-* Understand what format the URL should look like to make an Article Call. (Hint: Use the API Console!!)
+* Understand what format the URL should look like to make an Article Call. (Hint: Use the API Console!!) x
 
-* Experiment with console logging various fields.
+* Experiment with console logging various fields. x
 
 ## New York Times Article Search - Phase 02
 
