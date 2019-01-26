@@ -30,11 +30,11 @@
             </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Search Term</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          <textarea class="form-control" id="searchTerm" rows="1"></textarea>
         </div>
         <div class="form-group">
           <label for="exampleFormControlSelect1">Number of Records to Retrieve</label>
-          <select class="form-control" id="exampleFormControlSelect1">
+          <select class="form-control" id="numArt">
             <option>5</option>
             <option>10</option>
             <option>15</option>
@@ -42,14 +42,14 @@
         </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Start Year (Optional)</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          <textarea class="form-control" id="start" rows="1"></textarea>
         </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">End Year (Optional)</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          <textarea class="form-control" id="end" rows="1"></textarea>
         </div>
-        <button type="button" class="btn btn-secondary">Search</button>
-        <button type="button" class="btn btn-secondary">Clear Results</button>
+        <button id="searchBtn" type="button" class="btn btn-secondary">Search</button>
+        <button id="clearBtn" type="button" class="btn btn-secondary">Clear Results</button>
       </form>
     </div>
 
@@ -58,7 +58,7 @@
         <div class="card-header">
           Top Articles 
         </div>
-            <div class="card-body">
+            <div id="articles" class="card-body">
             </div>
       </div>
     </div>

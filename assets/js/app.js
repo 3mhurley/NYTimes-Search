@@ -3,13 +3,15 @@
 // Create Articles
 var printArt = function(param) {
 
-    $('#movies-view').empty();
+    
     // Rating
-    $('#movies-view').append(`<p> Headline: ${JSON.stringify(param.headline.main)} </>`);
+    $('#articles').append(`<p> Headline: ${JSON.stringify(param.headline.main)} </>`);
     // Released
-    $('#movies-view').append(`<p> Publish Date: ${JSON.stringify(param.pub_date)} Word Count: ${JSON.stringify(param.word_count)} </>`);
+    $('#articles').append(`<p> Publish Date: ${JSON.stringify(param.pub_date)} Word Count: ${JSON.stringify(param.word_count)} </>`);
     // Image
-    $('#movies-view').append(`<p> Abstract: ${JSON.stringify(param.abstract)} </>`);
+    $('#articles').append(`<p> Abstract: ${JSON.stringify(param.abstract)} </>`);
+
+    $('#articles').append(`<p> ___________________________- </>`);
 
 }
 
@@ -18,46 +20,45 @@ var printArt = function(param) {
 
 $(document).ready(function() {
 
-    // API Query
+$("#searchBtn").on("click", function() {
 
-    var host = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
-    var apiKey = "api-key=ifxosl5pYkbjEth9gms8XcOR0okRrt58";
-    var dateStart = "&begin_date=" + "19690719"; //YYYYMMDD
-    var dateEnd = "&end_date" + "19690721"; //YYYYMMDD
-    var sort = "&sort=" + "oldest";
-    var query = "&q=" + "moon+landing";
+        // API Query
 
-    var queryURL = host + apiKey + query + dateStart + dateEnd + sort;
+        var host = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+        var apiKey = "api-key=ifxosl5pYkbjEth9gms8XcOR0okRrt58";
+        var dateStart = "&begin_date=" + $('#start').val().trim(); //YYYYMMDD
+        var dateEnd = "&end_date" + $('#end').val().trim(); //YYYYMMDD
+        var sort = "&sort=" + "relevance";
+        var query = "&q=" + $('#searchTerm').val().trim();
+    
+        var queryURL = host + apiKey + query + sort;
+    
+        var num = $('#numArt').val().trim();
+        console.log(num);
+    
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+          }).then(function(api) {
+    
+            $('#articles').empty();
 
-    var num = 1;
+            for (let i = 0; i < num; i++) {
+                const element = api.response.docs[i];
+                console.log(api.response.docs[i].headline.main);
+                console.log(api.response.docs[i].pub_date);
+                console.log(api.response.docs[i].word_count);
+                console.log(api.response.docs[i].abstract);
+    
+                printArt(element);
+            }
+    
+    
+        });
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function(api) {
-
-        console.log(api.response.docs);
-        // var results = api.response.docs;
-        // api.response.docs.forEach((val,i) => {
-        //     console.log(api.response.docs[i].headline.main);
-        //     console.log(api.response.docs[i].pub_date);
-        //     console.log(api.response.docs[i].word_count);
-        //     console.log(api.response.docs[i].abstract);
-
-        // });
-
-        for (let i = 0; i < num; i++) {
-            const element = api.response.docs[i];
-            console.log(api.response.docs[i].headline.main);
-            console.log(api.response.docs[i].pub_date);
-            console.log(api.response.docs[i].word_count);
-            console.log(api.response.docs[i].abstract);
-
-            printArt(element);
-        }
+});
 
 
-    });
 
 
 });
